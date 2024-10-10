@@ -2,7 +2,6 @@ package org.example.service;
 
 import org.example.model.User;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -21,11 +20,11 @@ public class UserService {
 
     public String registerUser(String name, String email, String password) {
         if(users.containsKey(email)) {
-            return "A user with the data “ + email + ” already exists.";
+            return "Email is already in use.";
         }
         User newUser = new User(name, email, password);
         users.put(email, newUser);
-        return "User registered.";
+        return "Registration successful.";
     }
 
     public String loginUser(String email, String password) {
